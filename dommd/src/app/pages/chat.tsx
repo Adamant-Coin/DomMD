@@ -4,12 +4,18 @@ import 'tailwindcss/tailwind.css';
 
 const Chat = () => {
   const [message, setMessage] = useState('');
-  const [response, setResponse] = useState('');
+  const [messages, setMessages] = useState<string[]>([]);
 
-  const handleSubmit = async (event: FormEvent) => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setMessage(event.target.value);
+  };
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const res = await fetch('/api/chat', {
+    setMessages((prevMessages) => [...prevMessages, message]);
+
+    const response = await fetch('/api/chat', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -17,29 +23,34 @@ const Chat = () => {
       body: JSON.stringify({ message }),
     });
 
-    const data = await res.json();
-    setResponse(data.response);
-  };
+    const data = await response.json();
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setMessage(event.target.value);
+    setMessages((prevMessages) => [...prevMessages, data.response]);
+
+    setMessage('');
   };
 
   return (
     <Page>
-      <div className="p-4">
-        <form onSubmit={handleSubmit} className="flex flex-col">
+      <div className="flex flex-col h-full">
+        <div className="overflow-auto mb-4">
+          {messages.map((message, index) => (
+            <div key={index} className="mb-2">
+              {message}
+            </div>
+          ))}
+        </div>
+        <form onSubmit={handleSubmit} className="flex">
           <input
             type="text"
             value={message}
             onChange={handleChange}
-            className="p-2 border rounded mb-2"
+            className="flex-grow mr-2"
           />
           <button type="submit" className="p-2 bg-blue-500 text-white rounded">
-            Submit
+            Send
           </button>
         </form>
-        <p className="mt-4">{response}</p>
       </div>
     </Page>
   );

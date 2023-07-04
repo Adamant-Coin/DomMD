@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import axios from 'axios';
 
-const OPENAI_API_KEY = 'key';
+const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method !== 'POST') {

@@ -10,9 +10,7 @@ const Home = () => {
         <p className="mb-4">
           This chatbot uses AI to provide general health information based on your symptoms. Please note that this chatbot does not replace a consultation with a healthcare professional and is intended to be used for informational purposes only.
         </p>
-        <Link href="/chat">
-          <a className="p-2 bg-blue-500 text-white rounded">Start Chat</a>
-        </Link>
+        <Link href="/chat" className="p-2 bg-blue-500 text-white rounded">Start Chat</Link>
       </div>
       <div className="mt-10 text-center">
         <h2 className="text-xl mb-2">How to Use the AI Doctor Chatbot</h2>

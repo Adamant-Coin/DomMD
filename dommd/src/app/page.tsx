@@ -12,12 +12,8 @@ const Page = ({ children }: PageProps) => {
       <header className="mb-4">
         <h1 className="text-2xl">AI Doctor Chatbot</h1>
         <nav>
-          <Link href="/">
-            <a className="mr-4">Home</a>
-          </Link>
-          <Link href="/chat">
-            <a>Chat</a>
-          </Link>
+          <Link href="/" className="mr-4">Home</Link>
+          <Link href="/chat">Chat</Link>
         </nav>
       </header>
       <main className="flex-grow">{children}</main>

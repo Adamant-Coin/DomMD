@@ -1,2 +1,0 @@
-# DomMD
- Medical AI Chatbot

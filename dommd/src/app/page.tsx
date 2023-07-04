@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import 'tailwindcss/tailwind.css';
-import { LinkComponent } from 'next/link';
+import Link from 'next/link';
 
 interface PageProps {
   children: ReactNode;
@@ -12,12 +12,12 @@ const Page = ({ children }: PageProps) => {
       <header className="mb-4">
         <h1 className="text-2xl">AI Doctor Chatbot</h1>
         <nav>
-          <LinkComponent href="/">
+          <Link href="/">
             <a className="mr-4">Home</a>
-          </LinkComponent>
-          <LinkComponent href="/chat">
+          </Link>
+          <Link href="/chat">
             <a>Chat</a>
-          </LinkComponent>
+          </Link>
         </nav>
       </header>
       <main className="flex-grow">{children}</main>

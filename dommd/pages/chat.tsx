@@ -1,5 +1,5 @@
 import { ChangeEvent, FormEvent, useState } from 'react';
-import Page from '../page';
+import Page from '../src/app/page';
 import 'tailwindcss/tailwind.css';
 
 const Chat = () => {

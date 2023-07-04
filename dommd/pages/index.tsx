@@ -1,4 +1,4 @@
-import Page from '../page';
+import Page from '../src/app/page';
 import Link from 'next/link';
 import 'tailwindcss/tailwind.css';
 

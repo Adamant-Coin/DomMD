@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import axios from 'axios';
 
-const OPENAI_API_KEY = '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';
+const OPENAI_API_KEY = 'key';
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method !== 'POST') {
